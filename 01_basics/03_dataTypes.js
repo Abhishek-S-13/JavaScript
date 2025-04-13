@@ -19,8 +19,8 @@ symbole - uniqe
 // object
 
 console.log(typeof "Abhishek") //type - string  // this will get the what of datatype is this
-console.log(typeof null) //type - object
-console.log(typeof undefined) //type undefined
+console.log(typeof null)       //type - object
+console.log(typeof undefined)  //type undefined
 /* output 
 6
 string
