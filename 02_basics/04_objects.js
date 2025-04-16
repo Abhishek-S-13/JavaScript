@@ -22,7 +22,7 @@ console.log(regUser.fullname.userfullname);  // { firstName: 'Abhi', lastName: '
 console.log(regUser.fullname.userfullname.firstName); // Abhi
 
 
-const obj1 = { 1: "a", 2: "b" } // in console also we can check all below fun
+const obj1 = { 1: "a", 2: "b" } // in console also we can check all below 
 const obj2 = { 3: "a", 4: "b" }
 
 const obj3 = { obj1 , obj2}
@@ -58,3 +58,34 @@ console.log(Object.values(tinderUser)); // [ '123abc', 'BOSS', false ]
 console.log(Object.entries(tinderUser)); // [ [ 'id', '123abc' ], [ 'name', 'BOSS' ], [ 'isLogIn', false ] ]
 
 console.log(tinderUser.hasOwnProperty('isLogIn')); // true - object is there or not it will show
+
+/* *********************** Object De-structure *********************** */
+
+const course = {
+    courseName: "JavaScript",
+    price: "499",
+    courseInstructor: "Hitesh"
+}
+
+const {courseInstructor} = course           // this destructure helps in the React
+console.log(courseInstructor); // Hitesh
+
+const { courseInstructor : instructor } = course
+console.log(instructor);    // Hitesh
+
+
+/* ***************** JSON ***************** */
+// {    // JSON Syntax
+//     "name": "Abhi",
+//     "course": "JavaScript",
+//     "price": "free"
+// }
+
+// sometime array data also we get
+[
+    {},
+    {},
+    {}
+]
+// In the JSON formater add the code and check in the tree structure 
+// https://randomuser.me/ 
