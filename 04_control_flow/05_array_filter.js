@@ -2,14 +2,14 @@
 const myNums = [ 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 ]
 
 const newNums = myNums.filter( (num) => num > 4)
-console.log(newNums);
+console.log('5th Line OP: ',newNums);
 /* OP: [ 5, 6, 7, 8, 9, 10 ] */
 
 /* Ex2 filter another way */
 const myNum = [ 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 ]
 
 const newNum = myNum.filter( (num) => { return num > 4 })
-console.log(newNums);
+console.log('12 Line OP: ',newNums);
 /* OP: [ 5, 6, 7, 8, 9, 10 ] */
 
 /* Ex3 using FOREACH also we can fetch the same value */
@@ -21,7 +21,7 @@ myNumb.forEach( (num) => {
         newNumb.push(num)
     }
 } )
-console.log(newNumb);
+console.log('24 line OP: ',newNumb);
 /* OP: [ 5, 6, 7, 8, 9, 10 ] */
 
 const books = [
@@ -51,5 +51,5 @@ userBooks = books.filter( (bk) => { return bk.publish >= 2000 } )
 userBooks = books.filter( (bk) => { return bk.publish >= 2000 && bk.subject==="Maths"} )  
 /* OP: [ { title: 'B6', subject: 'Maths', publish: 2002, edition: 2005 } ] */
 
-console.log(userBooks);
+console.log('54 Line OP ',userBooks);
 
