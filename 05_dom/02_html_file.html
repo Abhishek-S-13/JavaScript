@@ -1,0 +1,43 @@
+<!-- Doctype will create just ! click -->
+<!-- Open with Live Server  -- View -> Extention -> Live Server install 
+ run right click and click on Open with Live Server -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Doc | Chai aur code </title>
+</head>
+<body style="background-color: #212121; color: #fff;">
+    <div class="parent">
+        <div class="day">Monday</div>
+        <div class="day">Tuesday</div>
+        <div class="day">Wednesday</div>
+        <div class="day">Thursday</div>
+    </div>
+</body>
+<script>
+// Open in live server and open console and check the
+    const parent = document.querySelector('.parent')
+    // console.log(parent);                // all list will appear
+    // console.log(parent.children);       // HtmlCollection will appear now with data
+    // console.log(parent.children[1]);    // Tuesday
+
+    for (let i = 0; i < parent.children.length; i++) {
+        console.log('For Loop data ', parent.children[i].innerHTML);  // now it will display all days
+    }
+    
+    parent.children[1].style.color = "Red"
+    console.log('First Elem 30 line', parent.firstElementChild);  // Monday
+    console.log('Last Elem 31 line', parent.lastElementChild);   // Thursday
+
+// Child to parent also we can move
+
+    const dayOne = document.querySelector('.day')
+    console.log('Day one 36 line', dayOne);     // Monday
+    console.log('Parent Element 37 line', dayOne.parentElement); // All will appear
+    console.log('Next Element Siblings 38 line', dayOne.nextElementSibling); // Tuesday
+
+    console.log("NODES :" , parent.childNodes)
+</script>
+</html>
