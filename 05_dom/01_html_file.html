@@ -3,13 +3,121 @@
 <head>
     <meta charset="UTF-8">
     <title>DOM Learning</title>
+    <style>
+        .bg-black{
+            background-color: #212121;
+            color: #fff;
+        }
+    </style>
 </head>
-<body>
-   <div class="bg-black">
-    <h1 class="heading">Dom learning on chai aur code</h1>
+<body class="bg-black">     <!-- Inspect--> document.getElementByID('title').id
+   <div>
+    <h1 id="title" class="heading">Dom learning on chai aur code
+        <span style="display: none;">text text</span>
+    </h1>
+    <h2>Lorem ipsum dolor sit amet.</h2>
+    <h2>Lorem ipsum dolor sit amet.</h2>
+    <h2>Lorem ipsum dolor sit amet.</h2> 
     <p>Lorem ipsum dolor sit amet.</p>
+
+    <input type="password" name="" id="">
+
+    <ul>
+        <!-- After line 100 explain added the class to li and add four -->
+        <li class="list-item">two</li>
+        <li class="list-item">one</li>
+        <li class="list-item">three</li>
+        <li class="list-item">four</li>
+    </ul>
+
    </div> 
 </body>
 </html>
 
 <!-- document.getElementById('firstHeading').innerHTML="<h1>Abhishek S</h1>" --> 
+<!-- Inspect --  
+document.getElementById('title').id   -- 'title'
+document.getElementById('title').className -- heading 
+document.getELementById('title').getAttribute('id')    -- 'title'
+document.getElementById('title').getAttribute('className') -- heading
+
+document.getElementById('title').setAttribute('class') -- heading
+document.getElementById('title').setAttribute('class','test') -- (it will overide the heading also)
+document.getElementById('title').setAttribute('class','test heading')
+
+document.getElementById('title')
+const title = document.getElementById('title')  // now we storing in varible 
+title 
+
+title.style.backgroundColor = 'green' 
+title.textContext or // Dom learning on chai aur code
+title.innerHTML or // Dom learning on chai aur code
+title.innerText   // Dom learning on chai aur code
+
+title.innerText // Dom learning on chai aur code 
+title.textContext // Dom learning on chai aur code text text
+title.innerHTML  // Dom learning on chai aur code <span style="display: none;">text text</span>
+  
+document.getElementByClassName('heading')
+
+// for 18th line
+document.querySelector('h2')    
+document.querySelector('#title')
+document.querySelector('.heading')
+
+// 23nd line for input 
+document.querySelector('input[type="password"]') 
+
+// 25th line
+document.querySelector('ul') 
+const myul = document.querySelector('ul')
+myul.querySelector('li')
+const turnGreen = myul.querySelector('li')
+turnGreen.style.backgroundColor = "green"  // background color got changed for one with bg green
+turnGreen.style.padding = "10px"   // padding also we can add
+
+turnGreen.innerText // one
+turnGreen.innerText = "five"  // now five will display instead of one
+
+document.querySelectorAll('li')
+const tempLiList = document.querySelectorAll('li')
+tempLiList   // NodeList() wil get // NodeList or HTMLcollection not real ARRAY 
+
+tempLiList // here Map not available in Prototype
+const myArr = [1, 2, 3, 4]
+myArr
+
+const myH1 = document.querySelectorAll('h1')
+myH1
+myH1.style.color = 'green' // it will not work its a NodeList 
+myH1[0].style.color = 'green' 
+
+tempLiList    // Prototype - forEach is there
+tempLiList.forEach(function (l) {
+    l.style.background = 'green'
+})
+
+For Nodelist use forEach loop bcz its not Array
+If we want Map - Nodelist convert into Array then use Map 
+
+-------------- After adding class names in the list 27th lines ------------------
+
+document.getElementsByClassName('list-item')
+const tempClassList = document.getElementsByClassName('list-item') // we stored value
+tempClasslist.forEach(function (li) {
+    console.log(li)
+})      // it will not work so same we have to follow like nodelist convert it to Array 
+        // same HTMLcollection also convert it to Array
+
+---Converting HtmlCollection to Array
+
+tempClasslist
+Array.from(tempClasslist)
+const myConvertedArray = Array.from(tempClasslist)
+myConvertedArry  // now we get the Array list
+
+myConvertedArry.forEach(function (li) {
+    li.style.color = 'orange'
+}) 
+
+-->
