@@ -1,0 +1,54 @@
+<!-- Edit and Remove element -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>DOM | Chai aur code</title>
+</head>
+<body style="background-color: #212121; color: #fff;">
+     <ul class="language">
+        <li>JavaScript</li>
+     </ul>   
+</body>
+<script>
+//--------------------------------- Basic code ---------------------------------------------
+// its a basic type dont use this
+    function addLanguage(langName){
+        const li = document.createElement('li')
+        li.innerHTML = `${langName}`
+        document.querySelector('.language').appendChild(li)
+    }
+    addLanguage("Python")
+    addLanguage("Java")
+
+//--------------------------------- Optimize approach ---------------------------------------------
+// Another way for optimize code this type we have to follow
+    function addOptlanguage(langName){
+        const li = document.createElement('li')
+        // const addText = document.createTextNode(langName)
+        // li.appendChild(addText) OR 27 line
+        li.appendChild(document.createTextNode(langName))
+        document.querySelector('.language').appendChild(li)
+    }
+    addOptlanguage("SQL")
+
+//--------------------------------------- EDIT ---------------------------------------
+// Ex1: 
+    const secLang = document.querySelector("li:nth-child(2)")
+    console.log(secLang);
+    // secLang.innerHTML = "PLSQL" we use this also but its not optimize
+    const newLi = document.createElement('li')
+    newLi.textContent = "PL-SQL"
+    secLang.replaceWith(newLi)
+
+// Ex2:
+    const firstLang = document.querySelector("li:first-child")
+    firstLang.outerHTML ='<li>TypeScript</li>' 
+
+//--------------------------------------- REMOVE ---------------------------------------
+    const lastLang = document.querySelector('li:last-child')
+    lastLang.remove()
+    
+</script>
+</html>
