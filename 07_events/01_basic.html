@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body style="background-color: #414141; color: aliceblue;">
+    <h2>Amazing image</h2>
+    <div >
+        <ul id="images">
+            <li><img width="200px" id="photoshop" src="https://images.pexels.com/photos/3561339/pexels-photo-3561339.jpeg?auto=compress&cs=tinysrgb&w=1600&lazy=load" alt="photoshop"></li>
+            <li><img width="200px" id="japan" src="https://images.pexels.com/photos/3532553/pexels-photo-3532553.jpeg?auto=compress&cs=tinysrgb&w=1600&lazy=load" alt=""></li>
+            <li><img width="200px" id="river" src="https://images.pexels.com/photos/3532551/pexels-photo-3532551.jpeg?auto=compress&cs=tinysrgb&w=1600&lazy=load" alt=""></li>
+            <li><img width="200px" id="owl" src="https://images.pexels.com/photos/3532552/pexels-photo-3532552.jpeg?auto=compress&cs=tinysrgb&w=1600&lazy=load" alt="" ></li>
+            <li><img width="200px" id="prayer" src="https://images.pexels.com/photos/2522671/pexels-photo-2522671.jpeg?auto=compress&cs=tinysrgb&w=1600&lazy=load" alt=""></li>
+            <li><a style="color: aliceblue;" href="https://google.com" id="google">Google</a></li>
+        </ul>
+   </div>
+</body>
+<script>
+
+/* ---------------------------- Old approach ----------------------------
+    document.getElementById('owl').onclick = function(){
+        alert('Owl clicked');
+    } 
+*/
+
+/* ---------------------------- IMP Events in console ----------------------------
+    type, timestamp, defaultPrevented, 
+    target, toElement, srcElement, currentTarget
+    offsetX, offsetY, screenX, screenY
+    altKey, ctrlKey, shiftKey, keyCode
+*/
+/* --------------------- Event Propogation basic with examples in console ------------------------------
+
+    document.getElementById('images').addEventListener('click',function(e){
+        console.log("Clicked inside the UL");
+    }, false ) 
+
+    document.getElementById('owl').addEventListener('click',function(e){
+        console.log("Owl Clicked"); // explained in 51, 52 line
+        e.stopPropagation();    // it will stop the top DOM 
+    }, false )
+
+    document.getElementById('google').addEventListener('click', function (e) {
+        console.log("Google Clicked");
+        e.preventDefault();  // this will target to DOM it will print
+        e.stopPropagation(); // it will stop the top DOM 
+    }, false )
+
+*/
+/* -------------------------------- Explaination --------------------------------
+fasle : in console 1st (Owl clicked) then (Clicked inside the UL) bcz false is bubbling phase
+true : in console 1st (Clicked inside the UL) then (Owl clicked) bcz ture is capturing phase
+   
+false | true is default Event Propogation we have to add (most false have to use)
+
+---------------------------- Event Propogation 2 types of phase ----------------------------
+true means: Capturing phase: The event is handled from the top of the DOM down to the target element.
+false means: Bubbling phase: The event is handled from the target element up to the top of the DOM.
+*/
+
+/* ------------ Project: if we click any image it will disappear ------------ */  
+// this will not working correctly means if i click google also all images will erase 
+/*
+    document.querySelector('#images').addEventListener('click', function(e){
+        console.log(e.target.parentNode);
+        let removeIt = e.target.parentNode;
+     // removeIt.parentNode.removeChild(removeIt) // OR
+        removeIt.remove();        
+    },false)
+*/
+
+// so that way we are using another scenario
+    document.querySelector('#images').addEventListener('click', function(e){
+        console.log(e.target.tagName); // here IMG will print in console
+        if(e.target.tagName === 'IMG'){
+            console.log(e.target.id);
+            let removeIt = e.target.parentNode;
+            removeIt.remove(); 
+        }
+               
+    },false)
+
+</script>
+</html>
