@@ -1,0 +1,32 @@
+<!-- https://developer.mozilla.org/en-US/docs/Web/API/XMLHttpRequest/readyState -->
+<!-- https://github.com/v8/v8/blob/main/src/d8/d8-console.cc - Learn this file once -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body style="background-color: #212121; color: #fff">
+0	UNSENT	Client has been created. open() not called yet.
+1	OPENED	open() has been called.
+2	HEADERS_RECEIVED	send() has been called, and headers and status are available.
+3	LOADING	Downloading; responseText holds partial data.
+4	DONE	The operation is complete.
+</body>
+<!-- Using Console only we fething this data -->
+<script>
+    const requestUrl = 'https://api.github.com/users/Abhishek-S-13'
+    const xhr = new XMLHttpRequest();
+    xhr.open('GET', requestUrl)
+    xhr.onreadystatechange = function(){
+        console.log(xhr.readyState); 
+        if(xhr.readyState === 4){
+            console.log('Data: ',this.responseText);
+            const data = JSON.parse(this.responseText)
+            console.log("Type of Data:", typeof data);   // its a STRING so we converted into JSON format now its a Object
+            console.log('Followers: ',data.followers);
+        }
+    }
+    xhr.send();
+</script>
+</html>
