@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Document</title>
+</head>
+<body style="background-color: #313131; color: #fff;">
+
+</body>
+
+<script>
+  // If we declare variable in the parent function those var not available in the outerscope
+    function outer(){   // outer function
+      let username = "Abhishek"
+      console.log("Child A inner() :",innerSecret); // innerSecret is not defined
+      function inner(){ // inner function
+          let innerSecret = "My"
+          console.log("Too Inner ",username);  // Too Inner Abhishek - here it will be available
+      }
+      function innerTwo(){ // inner function
+          console.log("Too InnerTwo ",username);  // Too Inner Abhishek - here it will be available
+          // If we declare var in the child A function those var not available in the child B 
+          console.log("Child A inner() :",innerSecret); // innerSecret is not defined
+      }
+      inner()
+      innerTwo()
+    }
+    outer()
+    console.log("Too Outer ",username); // username is not defined
+    
+  </script>
+</html>
